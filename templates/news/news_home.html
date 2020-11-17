@@ -7,11 +7,15 @@ News on site
 {% block content %}
 <div class="features">
     <h1>News on site</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio architecto sequi assumenda quisquam possimus dicta
-        veniam, magnam maiores! Libero similique beatae est maxime saepe quam quia! Dolore explicabo ipsam earum.</p>
-    <button class="btn btn-warning">About us</button>
-    {% for el in values %}
-        <p>{{ el }}</p>
-    {% endfor %}
+    {% if news %}
+        {% for el in news %}
+            <div class="alert alert-warning">
+                <h3>{{ el.title }}</h3>
+                <p>{{ el.anons }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>News is not found!</p>
+    {% endif %}
 </div>
 {% endblock %}
